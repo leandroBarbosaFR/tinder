@@ -1,9 +1,9 @@
+/* General Styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f8f0fc;
-  /* Light pastel background */
   color: #333;
   display: flex;
   justify-content: center;
@@ -20,13 +20,14 @@ body {
   border-radius: 12px;
 }
 
+/* Buttons */
 button {
   background-color: #ffafcc;
   border: none;
   color: white;
   padding: 12px;
   font-size: 16px;
-  margin: 5px;
+  margin: 10px;
   cursor: pointer;
   border-radius: 8px;
   transition: 0.3s;
@@ -36,7 +37,24 @@ button:hover {
   background-color: #ff85a1;
 }
 
-/* Swipeable Cards */
+/* Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* Increased gap for better mobile spacing */
+  padding: 10px;
+}
+
+input,
+textarea {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* Swipe Cards */
 #cards-container {
   display: flex;
   justify-content: center;
@@ -74,4 +92,22 @@ button:hover {
 .card.swipe-left {
   transform: translateX(-400px) rotate(-20deg);
   opacity: 0;
+}
+
+/* Mobile-friendly layout */
+@media screen and (max-width: 480px) {
+  body {
+    height: auto;
+    padding: 20px;
+  }
+
+  #app {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  form {
+    gap: 20px;
+    /* More spacing on mobile */
+  }
 }

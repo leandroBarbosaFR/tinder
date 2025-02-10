@@ -1,7 +1,6 @@
 const politicians = [];
 let voterKeywords = [];
 let matchedPoliticians = [];
-let currentIndex = 0;
 let userRole = "";
 
 // Random politician images
@@ -11,7 +10,14 @@ const randomImages = [
   "https://source.unsplash.com/300x300/?leader",
 ];
 
-// Show the correct form when clicking signup
+// Show signup options
+function showSignupOptions() {
+  document.getElementById("role-selection").style.display = "block";
+  document.getElementById("form-container").style.display = "none";
+  document.getElementById("swipe-container").style.display = "none";
+}
+
+// Handle signup button clicks
 document.getElementById("signup-voter").addEventListener("click", () => {
   userRole = "voter";
   document.getElementById("role-selection").style.display = "none";
@@ -24,6 +30,7 @@ document.getElementById("signup-politician").addEventListener("click", () => {
   document.getElementById("form-container").style.display = "block";
 });
 
+// Handle form submission
 document.getElementById("profile-form").addEventListener("submit", (e) => {
   e.preventDefault();
   const name = document.getElementById("name").value.trim();
@@ -33,6 +40,7 @@ document.getElementById("profile-form").addEventListener("submit", (e) => {
   if (userRole === "politician") {
     politicians.push({ name, description, keywords });
     alert(`Politician ${name} added!`);
+    showSignupOptions();  // Reset to signup screen after adding a politician
   } else {
     voterKeywords = keywords;
     matchedPoliticians = [];
@@ -42,6 +50,7 @@ document.getElementById("profile-form").addEventListener("submit", (e) => {
   }
 });
 
+// Generate politician cards
 function generatePoliticianCards() {
   const container = document.getElementById("cards-container");
   container.innerHTML = "";
@@ -60,6 +69,7 @@ function generatePoliticianCards() {
   });
 }
 
+// Swipe functionality
 function setupSwipe(card, politician) {
   let startX = 0, isDragging = false;
 

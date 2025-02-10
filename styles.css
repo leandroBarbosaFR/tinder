@@ -1,53 +1,77 @@
-
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f9;
+  background-color: #f8f0fc;
+  /* Light pastel background */
   color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 #app {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  background: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-}
-
-h1, h2 {
+  max-width: 400px;
   text-align: center;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-label {
-  font-weight: bold;
-}
-
-input, textarea, select, button {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
 }
 
 button {
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
+  background-color: #ffafcc;
   border: none;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #ff85a1;
 }
 
-#matches-container {
-  margin-top: 20px;
+/* Swipeable Cards */
+#cards-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 400px;
+}
+
+.card {
+  width: 300px;
+  background: #ffdeeb;
+  padding: 15px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  will-change: transform, opacity;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card h3 {
+  margin-top: 10px;
+}
+
+/* Swipe Animations */
+.card.swipe-right {
+  transform: translateX(400px) rotate(20deg);
+  opacity: 0;
+}
+
+.card.swipe-left {
+  transform: translateX(-400px) rotate(-20deg);
+  opacity: 0;
 }
